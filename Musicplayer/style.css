@@ -77,6 +77,16 @@ body{
     border-radius: 30px;
 }
 
+#repeteBtn{
+    background-image: url('./img/repetir.png');
+    background-size: 10px;
+    background-size: 46px;
+    background-repeat:no-repeat;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+
 
 #currentTime{
     display: flex;
