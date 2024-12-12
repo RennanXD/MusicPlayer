@@ -1,2 +1,2 @@
 # MusicPlayer
-Um repositorio de um criador de musicplayer
+Um projeto de um musicplayer utilizando apenas HTML, CSS e Javascript
