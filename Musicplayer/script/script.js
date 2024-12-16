@@ -1,44 +1,22 @@
 const audio = document.getElementById('MeuAudio');
 const playPauseBtn = document.getElementById('playPauseBtn')
-//const playBtn = document.getElementById('playBtn');
-//const pauseBtn = document.getElementById('pauseBtn');
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
-const repeatButton = document.getElementById('repeteBtn')
-
+const repeatButton = document.getElementById('repeteBtn');
+const trackTitleElemento = document.getElementById('musicaTitulo')
 //const currentTime = document.getElementById("currtentTime");
 
 let currentTrackIndex = 0;
 
-//Aqui e onde vai ser adicionadas as musicas
+
 const MinhaPlaylist = [
-    "./music/NIKK - _Não Estou Errado_ (prod. Lissa).mp3",
-    "./music/CHAOSS - GANÂNCIA (Prod.Haku).mp3",
-    "./music/♪ Deadpool (Finge que é Jujutsu) _ Ado ado ado _ AniRap.mp3",
-    "./music/3x4.mp3",
-    "./music/Otaku.mp3",
-    "./music/enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx).mp3"
+    { src: "./music/♪ Deadpool (Finge que é Jujutsu) _ Ado ado ado _ AniRap.mp3", title: "Deadpool (Finge que é Jujutsu) - Ado ado ado - AniRap" },
+    { src: "./music/CHAOSS - GANÂNCIA (Prod.Haku).mp3", title: "CHAOSS - GANÂNCIA (Prod. Haku)" },
+    { src: "./music/NIKK - _Não Estou Errado_ (prod. Lissa).mp3", title: "NIKK - Não Estou Errado (prod. Lissa)" },
+    { src: "./music/3x4.mp3", title: "3x4" },
+    { src: "./music/Otaku.mp3", title: "Otaku" },
+    { src: "./music/enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx).mp3", title: "enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx)" }
 ]
-
-/*function playPause(){
-    if(audio.paused){
-        audio.play;
-        toggleButtons(true);
-    }else{
-        audio.pause();
-        toggleButtons(false)
-    }
-}*/
-
-function toggleButtons(isPlaying) {
-    if (isPlaying) {
-        playBtn.style.display = 'none';
-        pauseBtn.style.display = 'inline-block';
-    } else {
-        playBtn.style.display = 'inline-block';
-        pauseBtn.style.display = 'none';
-    }
-}
 
 playPauseBtn.addEventListener('click' , ()=>{
     if(audio.paused){
@@ -49,23 +27,19 @@ playPauseBtn.addEventListener('click' , ()=>{
     }
 })
 
-/*playBtn.addEventListener('click', ()=>{
-    audio.play();
-    toggleButtons(true);
-})
-
-pauseBtn.addEventListener('click' , () =>{
-    audio.pause();
-    toggleButtons(false)
-})*/
+//Titulo da musica que esta sendo tocada
+function updateTrackTitle(){
+    trackTitleElemento.textContent = MinhaPlaylist[currentTrackIndex].title
+}
 
 //Função para a musica voltar
 function prevTrack(){
     if(currentTrackIndex > 0 ){
         currentTrackIndex--;
-        audio.src = MinhaPlaylist[currentTrackIndex];
+        audio.src = MinhaPlaylist[currentTrackIndex].src;
         audio.load();
         audio.play();
+        updateTrackTitle();
     } else {
         console.log('Chegou no começo da playlist')
     }
@@ -78,11 +52,16 @@ prevBtn.addEventListener('click', prevTrack)
 function nextTrack(){
     if(currentTrackIndex < MinhaPlaylist.length - 1) {
         currentTrackIndex++;
-        audio.src = MinhaPlaylist[currentTrackIndex];
+        audio.src = MinhaPlaylist[currentTrackIndex].src;
         audio.load();
         audio.play();
+        updateTrackTitle();
     }else{
-        console.log('Chegou no final da playlist')
+        currentTrackIndex = 0;
+        audio.src = MinhaPlaylist[currentTrackIndex].src;
+        audio.play();
+        audio.load();
+        updateTrackTitle();
     }
     console.log('Proxima musica mostrada')
 }
@@ -93,7 +72,7 @@ nextBtn.addEventListener('click' , nextTrack)
 function loadNextTrack(){
     if(currentTrackIndex < MinhaPlaylist.length - 1){
         currentTrackIndex++;
-        audio.src = MinhaPlaylist[currentTrackIndex];
+        audio.src = MinhaPlaylist[currentTrackIndex].src;
         audio.load().then(() => {
             audio.play();
         }).catch((error) => {
@@ -108,7 +87,7 @@ function loadNextTrack(){
 function loadPrevTrack(){
     if(currentTrackIndex < MinhaPlaylist.length - 1){
         currentTrackIndex--;
-        audio.src = MinhaPlaylist[currentTrackIndex];
+        audio.src = MinhaPlaylist[currentTrackIndex].src;
         audio.load().then(() => {
             audio.play();
         }).catch((error) => {
@@ -119,6 +98,7 @@ function loadPrevTrack(){
     }
 }
 
+//Esse botao e para fazer que ele repita a mesma musica em loop
 repeatButton.addEventListener('click' , function(){
     if(audio.loop){
         audio.loop = false;
@@ -127,6 +107,20 @@ repeatButton.addEventListener('click' , function(){
         audio.loop = true;
     }
 })
+
+//Avança para a proxima musica quando ela acabar e ela for para a primeira da lista
+audio.addEventListener('ended', ()=>{
+    if(currentTrackIndex< MinhaPlaylist.length - 1){
+        nextTrack();
+    }else{
+        currentTrackIndex = 0;
+        audio.src = MinhaPlaylist[currentTrackIndex].src;
+        audio.play();
+        audio.load();
+        updateTrackTitle();
+    }
+});
+updateTrackTitle();
 
 /*function formatTime(seconds){
     const minutes = Math.floor(seconds / 60);
