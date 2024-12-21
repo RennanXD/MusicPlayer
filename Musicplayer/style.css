@@ -54,17 +54,22 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-top: 110px;
+    gap: 15px;
+    margin-top: 159px;
+    background-color:#0f0606;
+    width: 100vw;
+    height: 14vh;
 }
 
 #playPauseBtn{
-    background-image: url('./img/Reproduzir.png');
+    background-color: aliceblue;
+    border: none;
     background-size: 46px;
     background-repeat:no-repeat;
     height: 50px;
     width: 50px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 /*#playBtn{
@@ -86,31 +91,55 @@ body{
 }*/
 
 #nextBtn{
-    background-image: url('./img/Next.png');
+    background: none;
+    border: none;
     background-size: 46px;
     background-repeat:no-repeat;
     height: 50px;
     width: 50px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 #prevBtn{
-    background-image: url('./img/Prev.png');
+    background:none;
+    border: none;
     background-size: 46px;
     background-repeat:no-repeat;
     height: 50px;
     width: 50px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 #repeteBtn{
-    background-image: url('./img/repetir.png');
-    background-size: 10px;
-    background-size: 46px;
+    background: none;
+    border: none;
     background-repeat:no-repeat;
     height: 50px;
     width: 50px;
     border-radius: 30px;
+    cursor: pointer;
+}
+
+.fa-backward-step{
+    font-size:20px;
+    color: #fff;
+}
+
+.fa-play{
+    font-size: 25px;
+    margin-left:3px;
+}
+
+.fa-forward-step{
+    font-size: 20px;
+    color: #fff;
+}
+
+.fa-repeat{
+    font-size:20px;
+    color: #fff;
 }
 
 #albumCover{
@@ -119,6 +148,10 @@ body{
     object-fit: cover;
     margin-top: 100px;
     border-radius: 5px;
+}
+
+#playPauseBtn:hover{
+    background-color: #b6b2b2;
 }
 
 /*#currentTime{

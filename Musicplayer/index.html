@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>MusicPlayer</title>
 </head>
 <body>
@@ -12,27 +13,20 @@
         Seu navegador não suporta
     </audio>
 
-    <div class="grid">
-        <img id="Deadpool" src="" alt="">
-        <img id="3x4"src="" alt="">
-        <img id="Ganancia"src="" alt="">
-        <img id="Bonde do Magneto"src="" alt="">
-        <img id="Otaku" src="" alt="">
-        <img id="Não estou errado"src="" alt="">
-    </div>
-
     <div id="player">
         <div id="musicaTitulo">
-            Titulo da musica
         </div>
+
+        <img id="albumCover" src="" alt="Capa do album">
         <div class="botoes">
-        <button id="prevBtn"></button>
-        <button id="playPauseBtn"></button>
+        <button id="prevBtn"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="playPauseBtn"><i class="fa-solid fa-play"></i></button>
         <!--<button id="playBtn"></button>
         <button id="pauseBtn"></button>-->
-        <button id="nextBtn"></button>
-        <button id="repeteBtn"></button>
-    
+        <button id="nextBtn"><i class="fa-solid fa-forward-step"></i></button>
+        <button id="repeteBtn"><i class="fa-solid fa-repeat"></i></button>
+        <!--<input type="range" name="volume" id="volume">
+        <span class="num">100</span>-->
     </div>
     <script src="/script/script.js"></script>
 </body>
