@@ -154,7 +154,46 @@ body{
     background-color: #b6b2b2;
 }
 
-/*#currentTime{
-    display: flex;
-    justify-content: center;
-}*/
+.progress-conteiner{
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.progress-bar-background{
+    width: 100%;
+    height: 10px;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress-bar-fill{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #1db954;
+    border-radius: 5px;
+}
+
+#progressBar{
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background: transparent;
+    position: absolute;
+    top:0;
+    left: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#progressBar::-webkit-slider-thumb{
+    width: 20px;
+    height: 20px;
+    background-color: #b6b2b2;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

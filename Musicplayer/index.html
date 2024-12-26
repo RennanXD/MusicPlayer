@@ -25,8 +25,13 @@
         <button id="pauseBtn"></button>-->
         <button id="nextBtn"><i class="fa-solid fa-forward-step"></i></button>
         <button id="repeteBtn"><i class="fa-solid fa-repeat"></i></button>
-        <!--<input type="range" name="volume" id="volume">
-        <span class="num">100</span>-->
+        <!--<input type="range" name="volume" id="vol" min="0" max="100" step="0.01" value="1">-->
+
+        <div class="progress-conteiner">
+            <div class="progress-bar-background">
+            <input type="range" id="progressBar" value="0" min="0" max="100" step="1">
+            <div class="progress-bar-fill"></div>
+        </div>
     </div>
     <script src="/script/script.js"></script>
 </body>
