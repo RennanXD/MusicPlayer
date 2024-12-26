@@ -1,21 +1,26 @@
 const audio = document.getElementById('MeuAudio');
-const playPauseBtn = document.getElementById('playPauseBtn')
+const playPauseBtn = document.getElementById('playPauseBtn');
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
 const repeatButton = document.getElementById('repeteBtn');
-const trackTitleElemento = document.getElementById('musicaTitulo')
-//const currentTime = document.getElementById("currtentTime");
+const trackTitleElemento = document.getElementById('musicaTitulo');
+const albumCover = document.getElementById("albumCover");
+const progressBar = document.getElementById("progressBar");
+const progressFill = document.querySelector('.progress-bar-fill')
+//const volumeBtn = document.getElementById("vol");
+
 
 let currentTrackIndex = 0;
 
 
 const MinhaPlaylist = [
-    { src: "./music/♪ Deadpool (Finge que é Jujutsu) _ Ado ado ado _ AniRap.mp3", title: "Deadpool (Finge que é Jujutsu) - Ado ado ado - AniRap" },
-    { src: "./music/CHAOSS - GANÂNCIA (Prod.Haku).mp3", title: "CHAOSS - GANÂNCIA (Prod. Haku)" },
-    { src: "./music/NIKK - _Não Estou Errado_ (prod. Lissa).mp3", title: "NIKK - Não Estou Errado (prod. Lissa)" },
-    { src: "./music/3x4.mp3", title: "3x4" },
-    { src: "./music/Otaku.mp3", title: "Otaku" },
-    { src: "./music/enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx).mp3", title: "enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx)" }
+    { src: "./music/♪ Deadpool (Finge que é Jujutsu) _ Ado ado ado _ AniRap.mp3", title: "Deadpool (Finge que é Jujutsu) - Ado ado ado - AniRap", cover:"./imgMusicas/Deadpool.jpg"},
+    { src: "./music/CHAOSS - GANÂNCIA (Prod.Haku).mp3", title: "CHAOSS - GANÂNCIA (Prod. Haku)", cover:"./imgMusicas/Ganancia.jpg" },
+    { src: "./music/NIKK - _Não Estou Errado_ (prod. Lissa).mp3", title: "NIKK - Não Estou Errado (prod. Lissa)",cover:"./imgMusicas/Nao estou errado.jpg" },
+    { src: "./music/3x4.mp3", title: "3x4", cover:"./imgMusicas/3x4.jpg" },
+    { src: "./music/Otaku.mp3", title: "Otaku", cover:"./imgMusicas/Otaku.jpeg" },
+    { src: "./music/enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx).mp3", title: "enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx)", cover:"./imgMusicas/Bonde do magneto.jpg"},
+    {src: "./music/5. Tiny Lobelia - Evellyne  (ft. Jvrthxypz, Junim, Ark King) [Prod. ohayomatsu].mp3", title:"Evellyne(Ark king)", cover:"./imgMusicas/Lobelia garden.jpg"},
 ]
 
 playPauseBtn.addEventListener('click' , ()=>{
@@ -30,11 +35,12 @@ playPauseBtn.addEventListener('click' , ()=>{
 //Titulo da musica que esta sendo tocada
 function updateTrackTitle(){
     trackTitleElemento.textContent = MinhaPlaylist[currentTrackIndex].title
+    albumCover.src = MinhaPlaylist[currentTrackIndex].cover
 }
 
 //Função para a musica voltar
 function prevTrack(){
-    if(currentTrackIndex > 0 ){
+    if(currentTrackIndex > 0){
         currentTrackIndex--;
         audio.src = MinhaPlaylist[currentTrackIndex].src;
         audio.load();
@@ -122,15 +128,24 @@ audio.addEventListener('ended', ()=>{
 });
 updateTrackTitle();
 
-/*function formatTime(seconds){
-    const minutes = Math.floor(seconds / 60);
-    const remaingSeconds = Math.floor(seconds % 60)
-    return `${minutes}:${remaingSeconds < 10 ? '0' : ''}${remaingSeconds}`;
-}*/
+//Aqui vai ficar o controle de volume
+/*volumeBtn.addEventListener('input', ()=>{
+    let volumeValue = parseFloat(volumeBtn.value);
+    if(volumeBtn < 0) volumeBtn = 0;
+    if(volumeBtn > 1) volumeBtn = 1;
+    audio.volume = volumeValue;
+})*/ 
 
+//Aqui atualiza a barra de progresso conforme o audio vai tocando
+audio.addEventListener('timeupdate', ()=>{
+    if(audio.duration){
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.value = progress;
+        progressFill.style.width = `&{progress}%`
+    }
+});
 
-//Atualizando o tempo atual da musica
-/*audio.ontimeupdate = function(){
-    console.currentTimeDisplay = audio.currentTimeDisplay;
-    currentTimeDisplay.textContent = formatTime(currentTime)
-};*/
+progressBar.addEventListener('input', ()=>{
+    const seekTo = (progressBar.value / 100) * audio.duration;
+    audio.currentTime = seekTo;
+})
