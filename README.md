@@ -12,4 +12,4 @@ Um projeto de um musicplayer utilizando apenas HTML, CSS e Javascript
 <p>Para por as imagens das musica voce baixa elas e coloca na pasta imgMusicas</p>
 <p>Cover: "./imgMusicas/Capa da musica.png ou .jpeg"</p>
 
-![Captura de Tela (465)](https://github.com/user-attachments/assets/f1dcf8ec-fa08-4b4b-9205-c21c60c3f2b0)
+![Captura de Tela (468)](https://github.com/user-attachments/assets/c182f00d-e32d-4c15-9ce2-82747674e448)
