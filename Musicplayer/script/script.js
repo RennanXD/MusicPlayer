@@ -26,9 +26,11 @@ const MinhaPlaylist = [
 playPauseBtn.addEventListener('click' , ()=>{
     if(audio.paused){
         audio.play();
+        playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
     }
     else{
         audio.pause();
+        playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>'
     }
 })
 
@@ -140,12 +142,18 @@ updateTrackTitle();
 audio.addEventListener('timeupdate', ()=>{
     if(audio.duration){
         const progress = (audio.currentTime / audio.duration) * 100;
-        progressBar.value = progress;
-        progressFill.style.width = `&{progress}%`
+        progressFill.style.width = `${progress}%`
     }
 });
 
 progressBar.addEventListener('input', ()=>{
-    const seekTo = (progressBar.value / 100) * audio.duration;
-    audio.currentTime = seekTo;
+    const value = progressBar.value;
+    const duration = audio.duration;
+
+    audio.currentTime = (value / 100) * duration
+})
+
+audio.addEventListener('timeupdate', ()=> {
+    const progress = (audio.currentTime / audio.duration) * 100
+    progressBar.value = progress;
 })
