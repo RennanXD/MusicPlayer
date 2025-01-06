@@ -72,6 +72,10 @@ body{
     cursor: pointer;
 }
 
+#playPauseBtn i {
+    font-size: 30px;
+}
+
 /*#playBtn{
     background-image: url('./img/Reproduzir.png');
     background-size: 46px;
@@ -173,8 +177,9 @@ body{
     top: 0;
     left: 0;
     height: 100%;
-    background-color: #1db954;
+    background-color: #e12a3d;
     border-radius: 5px;
+    transition: width 0.3s ease-in-out;
 }
 
 #progressBar{
@@ -187,13 +192,15 @@ body{
     left: 0;
     cursor: pointer;
     z-index: 2;
+    opacity: 0;
 }
 
 #progressBar::-webkit-slider-thumb{
     width: 20px;
     height: 20px;
-    background-color: #b6b2b2;
-    border: none;
+    background-color: #fff;
+    border: 2px solid #1db954;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transofrm 0.3s ease, background-color 0.3s ease;
 }
