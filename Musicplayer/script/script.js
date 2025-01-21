@@ -11,9 +11,9 @@ const progressFill = document.querySelector('.progress-bar-fill')
 
 
 let currentTrackIndex = 0;
+let MinhaPlaylist = []
 
-
-const MinhaPlaylist = [
+/*const MinhaPlaylist = [
     { src: "./music/♪ Deadpool (Finge que é Jujutsu) _ Ado ado ado _ AniRap.mp3", title: "Deadpool (Finge que é Jujutsu) - Ado ado ado - AniRap", cover:"./imgMusicas/Deadpool.jpg"},
     { src: "./music/CHAOSS - GANÂNCIA (Prod.Haku).mp3", title: "CHAOSS - GANÂNCIA (Prod. Haku)", cover:"./imgMusicas/Ganancia.jpg" },
     { src: "./music/NIKK - _Não Estou Errado_ (prod. Lissa).mp3", title: "NIKK - Não Estou Errado (prod. Lissa)",cover:"./imgMusicas/Nao estou errado.jpg" },
@@ -21,7 +21,20 @@ const MinhaPlaylist = [
     { src: "./music/Otaku.mp3", title: "Otaku", cover:"./imgMusicas/Otaku.jpeg" },
     { src: "./music/enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx).mp3", title: "enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx)", cover:"./imgMusicas/Bonde do magneto.jpg"},
     {src: "./music/5. Tiny Lobelia - Evellyne  (ft. Jvrthxypz, Junim, Ark King) [Prod. ohayomatsu].mp3", title:"Evellyne(Ark king)", cover:"./imgMusicas/Lobelia garden.jpg"},
-]
+]*/
+
+//Carregar o JSON da playlist
+fetch('MinhaPlaylist.json')
+ .then((response) => {
+    return response.json();
+ })
+ .then((data) => {
+    MinhaPlaylist = data;
+    updateTrackTitle();
+ })
+.catch((error) => {
+    console.error("Erro ao carregar a playlist" , error);
+})
 
 playPauseBtn.addEventListener('click' , ()=>{
     if(audio.paused){
@@ -107,12 +120,13 @@ function loadPrevTrack(){
 }
 
 //Esse botao e para fazer que ele repita a mesma musica em loop
-repeatButton.addEventListener('click' , function(){
-    if(audio.loop){
+repeatButton.addEventListener('click', function() {
+    if (audio.loop) {
         audio.loop = false;
-    }
-    else{
+        //repeatButton.innerHTML = '<i class="fa-solid fa-repeat"></i>';
+    } else {
         audio.loop = true;
+        //repeatButton.innerHTML = '<i class="fa-solid fa-repeat-1"></i>';
     }
 })
 
