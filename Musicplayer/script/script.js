@@ -142,7 +142,7 @@ audio.addEventListener('ended', ()=>{
         updateTrackTitle();
     }
 });
-updateTrackTitle();
+
 
 //Aqui vai ficar o controle de volume
 /*volumeBtn.addEventListener('input', ()=>{
