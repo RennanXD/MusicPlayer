@@ -2,37 +2,37 @@
     {
       "src": "./music/♪ Deadpool (Finge que é Jujutsu) _ Ado ado ado _ AniRap.mp3",
       "title": "Deadpool (Finge que é Jujutsu) - Ado ado ado - AniRap",
-      "cover": "./imgMusicas/Deadpool.jpg"
+      "cover": "https://i.ytimg.com/vi/Q7AfW9ziqec/maxresdefault.jpg"
     },
     {
       "src": "./music/CHAOSS - GANÂNCIA (Prod.Haku).mp3",
       "title": "CHAOSS - GANÂNCIA (Prod. Haku)",
-      "cover": "./imgMusicas/Ganancia.jpg"
+      "cover": "https://i.ytimg.com/vi/gnEheBEiUwY/mqdefault.jpg"
     },
     {
       "src": "./music/NIKK - _Não Estou Errado_ (prod. Lissa).mp3",
       "title": "NIKK - Não Estou Errado (prod. Lissa)",
-      "cover": "./imgMusicas/Nao estou errado.jpg"
+      "cover": "https://i.ytimg.com/vi/1GLKonfvcBs/sddefault.jpg?v=66c8dd63"
     },
     {
       "src": "./music/3x4.mp3",
       "title": "3x4",
-      "cover": "./imgMusicas/3x4.jpg"
+      "cover": "https://i.ytimg.com/vi/cIJrfqWF8wc/maxresdefault.jpg"
     },
     {
       "src": "./music/Otaku.mp3",
       "title": "Otaku",
-      "cover": "./imgMusicas/Otaku.jpeg"
+      "cover": "https://i.ytimg.com/vi/WvORHx3R5lE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBbd9uI2LM4zdqQiH795jrkyW2ZgQ"
     },
     {
       "src": "./music/enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx).mp3",
       "title": "enmiosis - Bonde do Magneto (feat. D$ Luqi, Vidari, izxx)",
-      "cover": "./imgMusicas/Bonde do magneto.jpg"
+      "cover": "https://i.ytimg.com/vi/gR2iVsPIQPs/mqdefault.jpg"
     },
     {
       "src": "./music/5. Tiny Lobelia - Evellyne  (ft. Jvrthxypz, Junim, Ark King) [Prod. ohayomatsu].mp3",
       "title": "Evellyne(Ark king)",
-      "cover": "./imgMusicas/Lobelia garden.jpg"
+      "cover": "https://i.ytimg.com/vi/9SemUpWsK-k/maxresdefault.jpg"
     }
   ]
   
