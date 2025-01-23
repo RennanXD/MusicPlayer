@@ -10,6 +10,6 @@ Um projeto de um musicplayer utilizando apenas HTML,CSS e Javascript
 <strong>Title: Nome da musica</strong>
 
 <h2>Para por as imagens das musica</h2>
-<strong>Cover: "./imgMusicas/Capa da musica.png ou .jpeg"</strong>
+<strong>Cover: "URL da imagem"</strong>
 
 <br>![Captura de Tela (469)](https://github.com/user-attachments/assets/8e7b7aff-5811-425a-8ce8-e6587d62290d)
